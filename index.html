@@ -1,194 +1,450 @@
 <!DOCTYPE html>
 <html lang="tr">
-     <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link href="/src/style.css" rel="stylesheet" />
-          <title>Bünyamin Kartal</title>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bünyamin Kartal</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Custom styles for smooth scrolling and active nav link */
+        html {
+            scroll-behavior: smooth;
+        }
+        .nav-link.active {
+            color: #3e6ff4;
+            font-weight: 700;
+        }
+        .lang-btn {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        .lang-btn.active {
+            background-color: #3e6ff4;
+            color: white;
+            border-color: #3e6ff4;
+        }
+        .lang-btn:not(.active) {
+            color: #4b5563; /* gray-600 */
+            border-color: #d1d5db; /* gray-300 */
+        }
+        .lang-btn:not(.active):hover {
+            background-color: #f3f4f6; /* gray-100 */
+        }
+    </style>
+</head>
 
-     <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
-          <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur shadow z-50">
-               <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-                    <span class="text-2xl font-extrabold tracking-tight" style="color: #3e6ff4">Bünyamin Kartal</span>
-                    <ul class="hidden md:flex space-x-4 md:space-x-8 text-base">
-                         <li><a href="#about" class="nav-link hover:text-[#3e6ff4] hover:underline-none font-medium transition-colors">About</a></li>
-                         <li><a href="#skills" class="nav-link hover:text-[#3e6ff4] hover:underline-none font-medium transition-colors">Skills</a></li>
-                         <li><a href="#projects" class="nav-link hover:text-[#3e6ff4] hover:underline-none font-medium transition-colors">Projects</a></li>
-                         <li><a href="#experience" class="nav-link hover:text-[#3e6ff4] hover:underline-none font-medium transition-colors">Experience</a></li>
-                         <li><a href="#education" class="nav-link hover:text-[#3e6ff4] hover:underline-none font-medium transition-colors">Education</a></li>
-                         <li><a href="#contact" class="nav-link hover:text-[#3e6ff4] hover:underline-none font-medium transition-colors">Contact</a></li>
-                    </ul>
-                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded focus:outline-none focus:ring-2" style="--tw-ring-color: #3e6ff4" aria-label="Menüyü Aç">
-                         <i class="fas fa-bars fa-lg"></i>
-                    </button>
-               </div>
-               <div id="mobileMenu" class="absolute left-0 top-full w-full bg-white shadow-lg z-40 flex-col md:hidden hidden">
-                    <a href="#about" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4] border-b border-gray-100">About</a>
-                    <a href="#skills" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4] border-b border-gray-100">Skills</a>
-                    <a href="#projects" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4] border-b border-gray-100">Projects</a>
-                    <a href="#experience" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4] border-b border-gray-100">Experience</a>
-                    <a href="#education" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4] border-b border-gray-100">Education</a>
-                    <a href="#contact" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4]">Contact</a>
-               </div>
-          </nav>
+<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
 
-          <main class="max-w-6xl mx-auto pt-24 space-y-20 px-5">
-               <section class="py-16 flex flex-col md:flex-row items-center">
-                    <div class="flex-1 flex flex-col items-center text-center md:items-start md:text-left gap-6">
-                         <h1 class="text-4xl md:text-6xl font-black text-[#3e6ff4] leading-tight">Merhaba, ben Bünyamin KARTAL</h1>
-                         <h2 class="text-xl md:text-2xl font-semibold text-gray-700">Back-End Developer</h2>
-                         <p class="text-lg max-w-xl">Elektronik ve yazılım alanlarında yenilikçi teknolojileri kullanarak, sürdürülebilir, modüler ve kullanıcı odaklı projeler geliştiriyorum. SOLID prensipleri ve temiz kod anlayışıyla, değişime açık ve ölçeklenebilir çözümler sunuyorum.</p>
-                         <div class="flex gap-4 mt-2">
-                              <a href="#contact" class="bg-[#3e6ff4] text-white px-6 py-2 rounded-full font-bold shadow hover:bg-[#3e6ff4] transition">İletişime Geç</a>
-                              <a href="#projects" class="bg-white border border-[#3e6ff4] text-[#3e6ff4] px-6 py-2 rounded-full font-bold shadow transition hover:bg-[#3e6ff4] hover:text-white">Projelerim</a>
-                         </div>
-                         <div class="flex gap-4 mt-6">
-                              <a href="mailto:bunyaminkartalmain@gmail.com" class="text-gray-500 hover:text-[#3e6ff4]" aria-label="Mail"><i data-feather="mail" class="w-6 h-6"></i></a>
-                              <a href="#" class="text-gray-500 hover:text-[#3e6ff4]" aria-label="GitHub"><i data-feather="github" class="w-6 h-6"></i></a>
-                              <a href="#" class="text-gray-500 hover:text-[#3e6ff4]" aria-label="LinkedIn"><i data-feather="linkedin" class="w-6 h-6"></i></a>
-                         </div>
-                    </div>
-                    <div class="flex-1 flex justify-center">
-                         <img src="public/pp.jpeg" alt="Bünyamin Kartal" class="w-56 h-56 rounded-full border-8 shadow-xl object-cover" style="border-color: #3e6ff4" />
-                    </div>
-               </section>
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur shadow z-50">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <span class="text-2xl font-extrabold tracking-tight" style="color: #3e6ff4">Bünyamin Kartal</span>
+            <div class="flex items-center space-x-8">
+                <ul class="hidden md:flex space-x-4 md:space-x-8 text-base">
+                    <li><a href="#about" class="nav-link hover:text-[#3e6ff4] font-medium transition-colors" data-translate="nav_about">About</a></li>
+                    <li><a href="#skills" class="nav-link hover:text-[#3e6ff4] font-medium transition-colors" data-translate="nav_skills">Skills</a></li>
+                    <li><a href="#projects" class="nav-link hover:text-[#3e6ff4] font-medium transition-colors" data-translate="nav_projects">Projects</a></li>
+                    <li><a href="#experience" class="nav-link hover:text-[#3e6ff4] font-medium transition-colors" data-translate="nav_experience">Experience</a></li>
+                    <li><a href="#education" class="nav-link hover:text-[#3e6ff4] font-medium transition-colors" data-translate="nav_education">Education</a></li>
+                    <li><a href="#contact" class="nav-link hover:text-[#3e6ff4] font-medium transition-colors" data-translate="nav_contact">Contact</a></li>
+                </ul>
+                <!-- Language Switcher -->
+                <div class="hidden md:flex items-center space-x-2">
+                    <button id="lang-tr" class="lang-btn">TR</button>
+                    <button id="lang-en" class="lang-btn">EN</button>
+                </div>
+            </div>
+            <button id="mobileMenuBtn" class="md:hidden p-2 rounded focus:outline-none focus:ring-2" style="--tw-ring-color: #3e6ff4" aria-label="Open Menu">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="absolute left-0 top-full w-full bg-white shadow-lg z-40 flex-col md:hidden hidden">
+            <a href="#about" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4] border-b border-gray-100" data-translate="nav_about">About</a>
+            <a href="#skills" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4] border-b border-gray-100" data-translate="nav_skills">Skills</a>
+            <a href="#projects" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4] border-b border-gray-100" data-translate="nav_projects">Projects</a>
+            <a href="#experience" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4] border-b border-gray-100" data-translate="nav_experience">Experience</a>
+            <a href="#education" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4] border-b border-gray-100" data-translate="nav_education">Education</a>
+            <a href="#contact" class="nav-link block py-3 px-6 text-lg font-medium hover:text-[#3e6ff4]" data-translate="nav_contact">Contact</a>
+            <!-- Language Switcher for Mobile -->
+            <div class="flex justify-center items-center space-x-4 py-4">
+                <button id="lang-tr-mobile" class="lang-btn">TR</button>
+                <button id="lang-en-mobile" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </nav>
 
-               <section id="about">
-                    <div class="bg-white/90 rounded-2xl shadow-xl p-10 flex flex-col md:flex-row items-center">
-                         <div class="flex-shrink-0 hidden md:block">
-                              <i data-feather="user" class="w-16 h-16 text-[#3e6ff4]"></i>
-                         </div>
-                         <div>
-                              <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4">About</h2>
-                              <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
-                              <p class="text-lg">
-                                Doğuş Üniversitesi Bilgisayar Mühendisliği Bölümü'nde üçüncü sınıf öğrencisiyim. Üniversitede geçirdiğim üç yıl boyunca Java ve C++ dillerinde nesne yönelimli programlama temelli projeler gerçekleştirdim. Bu süreçte ekip çalışması, problem çözme ve yazılım geliştirme konularında önemli beceriler kazandım.
-                                Kariyerime sağlam adımlarla ilerlerken, kendimi sürekli geliştirerek yeniliklere açık olmaya özen gösteriyorum. Profesyonel yetkinliklerimi artırmak ve sektördeki en iyi uygulamaları öğrenmek için sürekli olarak kendimi motive ediyorum. Bu amaç doğrultusunda, teknik becerilerimi ve teorik bilgimi pratik deneyimlerle pekiştirerek, bilgisayar mühendisliği alanında etkili ve yenilikçi çözümler üretebilecek bir profesyonel olmayı hedefliyorum.
-                         </div>
-                    </div>
-               </section>
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto pt-32 md:pt-24 space-y-20 px-5">
+        
+        <!-- Hero Section -->
+        <section class="py-16 flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="flex-1 flex flex-col items-center text-center md:items-start md:text-left gap-6">
+                <h1 class="text-4xl md:text-6xl font-black text-[#3e6ff4] leading-tight" data-translate="hero_greeting">Merhaba, ben Bünyamin KARTAL</h1>
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-700" data-translate="hero_title">Back-End Developer</h2>
+                <p class="text-lg max-w-xl" data-translate="hero_desc">Elektronik ve yazılım alanlarında yenilikçi teknolojileri kullanarak, sürdürülebilir, modüler ve kullanıcı odaklı projeler geliştiriyorum. SOLID prensipleri ve temiz kod anlayışıyla, değişime açık ve ölçeklenebilir çözümler sunuyorum.</p>
+                <div class="flex gap-4 mt-2">
+                    <a href="#contact" class="bg-[#3e6ff4] text-white px-6 py-2 rounded-full font-bold shadow hover:bg-opacity-90 transition" data-translate="hero_contact_btn">İletişime Geç</a>
+                    <a href="#projects" class="bg-white border border-[#3e6ff4] text-[#3e6ff4] px-6 py-2 rounded-full font-bold shadow transition hover:bg-[#3e6ff4] hover:text-white" data-translate="hero_projects_btn">Projelerim</a>
+                </div>
+                <div class="flex gap-4 mt-6">
+                    <a href="mailto:bunyaminkartalmain@gmail.com" class="text-gray-500 hover:text-[#3e6ff4]" aria-label="Mail"><i class="fas fa-envelope fa-lg"></i></a>
+                    <a href="https://github.com/bunyaminkartall" target="_blank" class="text-gray-500 hover:text-[#3e6ff4]" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
+                    <a href="https://www.linkedin.com/in/bünyaminkartal/" target="_blank" class="text-gray-500 hover:text-[#3e6ff4]" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="flex-1 flex justify-center">
+                <img src="https://placehold.co/224x224/3e6ff4/ffffff?text=BK" alt="Bünyamin Kartal" class="w-56 h-56 rounded-full border-8 shadow-xl object-cover" style="border-color: #3e6ff4" />
+            </div>
+        </section>
 
-               <section id="skills">
-                    <div>
-                         <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4">Skills</h2>
-                         <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
-                         <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-base font-medium">
-                              <li class="bg-white rounded-xl shadow p-4 flex flex-col items-center gap-2 hover:scale-105 transition">
-                                   <i class="fab fa-java fa-2x" style="color: #3e6ff4"></i>
-                                   <span>Java</span>
-                                   <span class="text-xs text-gray-500 text-center">Backend ve genel yazılım geliştirme deneyimi</span>
-                              </li>
-                              <li class="bg-white rounded-xl shadow p-4 flex flex-col items-center gap-2 hover:scale-105 transition">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg" alt=".NET" class="w-8 h-8">
-                                <span>.NET</span>
-                                <span class="text-xs text-gray-500 text-center">Backend ve genel yazılım geliştirme deneyimi</span>
-                            </li>
-                            
-                         </ul>
-                    </div>
-               </section>
-
-               <section id="projects">
-                    <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4">Projects</h2>
+        <!-- About Section -->
+        <section id="about">
+            <div class="bg-white/90 rounded-2xl shadow-xl p-10 flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-shrink-0 hidden md:block">
+                    <i class="fas fa-user fa-3x text-[#3e6ff4]"></i>
+                </div>
+                <div class="w-full">
+                    <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4" data-translate="about_title">About</h2>
                     <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
-                    <div id="projects-list" class="flex flex-col gap-8">
-                         <div class="bg-white rounded-xl shadow p-6 hover:scale-105 transition flex flex-col gap-2">
-                              <h3 class="text-xl font-semibold mb-1">bunyaminkartall.github.io</h3>
-                              <p class="mb-2">Github sayfamı ziyaret ederek yapmış olduğum projeleri inceleyebilirsiniz.</p>
-                              <a href="https://github.com/bunyaminkartall" target="_blank" rel="noopener" class="font-medium hover:underline" style="color: #3e6ff4">Projelerime Git</a>
-                         </div>
-                         <div class="bg-white rounded-xl shadow p-6 hover:scale-105 transition flex flex-col gap-2">
-                          <h3 class="text-xl font-semibold mb-1">LinkedIn Bünyamin KARTAL</h3>
-                          <p class="mb-2">linkedin sayfamı ziyaret ederek kariyer gelişimim hakkında bilgi edinebilirsiniz.</p>
-                          <a href="https://www.linkedin.com/in/bünyaminkartal/" target="_blank" rel="noopener" class="font-medium hover:underline" style="color: #3e6ff4">Sayfaya Git</a>
-                     </div>
-                    </div>
-               </section>
+                    <p class="text-lg" data-translate="about_desc">Doğuş Üniversitesi Bilgisayar Mühendisliği Bölümü'nde üçüncü sınıf öğrencisiyim. Üniversitede geçirdiğim üç yıl boyunca Java ve C++ dillerinde nesne yönelimli programlama temelli projeler gerçekleştirdim. Bu süreçte ekip çalışması, problem çözme ve yazılım geliştirme konularında önemli beceriler kazandım. Kariyerime sağlam adımlarla ilerlerken, kendimi sürekli geliştirerek yeniliklere açık olmaya özen gösteriyorum. Profesyonel yetkinliklerimi artırmak ve sektördeki en iyi uygulamaları öğrenmek için sürekli olarak kendimi motive ediyorum. Bu amaç doğrultusunda, teknik becerilerimi ve teorik bilgimi pratik deneyimlerle pekiştirerek, bilgisayar mühendisliği alanında etkili ve yenilikçi çözümler üretebilecek bir profesyonel olmayı hedefliyorum.</p>
+                </div>
+            </div>
+        </section>
 
-               <section id="experience">
-                    <div>
-                         <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4">Experience</h2>
-                         <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
-                         <ul class="space-y-6">
-                              <li class="bg-white rounded-xl shadow p-6 flex flex-col gap-2 hover:scale-105 transition">
-                                   <div class="font-semibold text-lg">Yazılım Geliştirme(Intern Backend Devolper) - Penta Teknoloji</div>
-                                   <div class="text-sm text-gray-600">Tem 2024 - Eyl 2024</div>
-                                   <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
-                                        <li>Temmuz 2024 itibarıyla Penta Teknoloji firmasında Dijital Dönüşüm ve Operasyon Direktörlüğü departmanında Yazılım Geliştirme stajına başlamış bulunmaktayım. Bu staj, yazılım geliştirme süreçlerine dair derinlemesine bilgi edinmemi ve dijital dönüşüm projelerinde aktif rol almamı sağlamaktadır. Profesyonel ortamda elde ettiğim deneyimler, teknik becerilerimi pekiştirmeme ve kariyerime değerli katkılar sunmama olanak tanımaktadır.</li>
-                                        <li>C#,.Net, Sosyal Beceri, Ekip Çalışması </li>
-                                        
-                                   </ul>
-                              </li>
-                              <li class="bg-white rounded-xl shadow p-6 flex flex-col gap-2 hover:scale-105 transition">
-                                <div class="font-semibold text-lg">Intern Embedded Software Developer - Quark Optical</div>
-                                <div class="text-sm text-gray-600">Kas 2024 - Mar 2025</div>
-                                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
-                                     <li>Heyecan verici bir yolculuğa başlıyorum! APD modülleri, lazer radar, mesafe ölçüm teknolojileri ve biyomedikal analiz gibi yenilikçi alanlarda faaliyet gösteren bir firmada yazılım stajına başladım. Bu staj sürecinde, düşük ışık seviyelerinin algılanmasında kullanılan gelişmiş teknolojileri öğrenme ve geliştirme fırsatı yakalayacağım. Özellikle düşük gürültülü amplifikatör devreleri, yüksek voltaj güç kaynakları ve sıcaklık dengeleme devreleri gibi karmaşık sistemlerin yazılım çözümlerine odaklanarak, edindiğim bilgi ve becerileri gerçek projelerde uygulama şansı bulacağım. Teknoloji ve yazılım geliştirme yolculuğumun bir sonraki aşaması için sabırsızlanıyorum!</li>
-                                     <li>C, STM32, Ekip Çalışması, Sosyal Beceri</li>
-    
-                                </ul>
-                           </li>
-                           <li class="bg-white rounded-xl shadow p-6 flex flex-col gap-2 hover:scale-105 transition">
-                            <div class="font-semibold text-lg">GDG On Campus Dogus Universty</div>
-                            <div class="text-sm text-gray-600">Ekm 2024 - Halen</div>
-                            <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
-                                 <li>Okulumnuz bünyesinde bulunan kulübümüzde çeşitli workshoplar, söyleşiler, podcastler ve zirveler düzenleyerek hem kendi gelişimimize katkıda bulunuduk hem de bizimle aynı amaca hizmet eden arkadaşlarımıza sektör ve gündem hakkında ufuklarını açıcak ortamlar sunduk.</li>
-                                 <li>Ekip Çalışması, Etkinlik Yönetimi, Sosyal Beceri</li>
-                                 
-                            </ul>
-                       </li>
-                       <li class="bg-white rounded-xl shadow p-6 flex flex-col gap-2 hover:scale-105 transition">
-                        <div class="font-semibold text-lg">Part-Time Etkinlik Destek Görevlisi - AdStation</div>
-                        <div class="text-sm text-gray-600">Eyl 2021 - Halen</div>
-                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
-                             <li>Etkinlik yönetimi, organizasyon planlaması ve sahada operasyonel destek sağlama gibi görevlerde aktif rol aldım. Takım çalışması, problem çözme ve müşteri deneyimi konularında yetkinlik kazandım. Dinamik ortamlarda esneklik ve zaman yönetimi becerilerimi geliştirdim.</li>
-                             <li>Ekip Çalışması, Sorun Çözme, Stres Yönetimi</li>
-                             
-                        </ul>
-                   </li>
-                         </ul>
-                    </div>
-               </section>
-
-               <section id="education">
-                    <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4">Education</h2>
-                    <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
-                    <ul class="flex flex-col gap-6">
-                      <li class="bg-white rounded-xl shadow p-6 hover:scale-105 transition flex items-center gap-4">
-                        <img src="public/okul.png" alt="Doğuş Üniversitesi" class="w-16 h-16 min-w-16 min-h-16 aspect-square object-contain rounded bg-gray-100" />
-                        <div>
-                            <div class="font-semibold text-lg">Doğuş Üniversitesi</div>
-                            <div class="text-sm text-gray-600">Bilgisayar Mühendisliği - 2022-halen</div>
-                            <div class="text-gray-700">Yazılım geliştirme, algoritmalar ve proje yönetimi üzerine yoğun eğitim. Kulüp ve topluluklarda aktif rol.</div>
-                        </div>
+        <!-- Skills Section -->
+        <section id="skills">
+            <div>
+                <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4" data-translate="skills_title">Skills</h2>
+                <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-base font-medium">
+                    <li class="bg-white rounded-xl shadow p-4 flex flex-col items-center gap-2 hover:scale-105 transition">
+                        <i class="fab fa-java fa-2x" style="color: #3e6ff4"></i>
+                        <span>Java</span>
+                        <span class="text-xs text-gray-500 text-center" data-translate="skill_java_desc">Backend ve genel yazılım geliştirme deneyimi</span>
                     </li>
-                    
-                    </ul>
-               </section>
+                    <li class="bg-white rounded-xl shadow p-4 flex flex-col items-center gap-2 hover:scale-105 transition">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg" alt=".NET" class="w-8 h-8">
+                        <span>.NET</span>
+                        <span class="text-xs text-gray-500 text-center" data-translate="skill_net_desc">Backend ve genel yazılım geliştirme deneyimi</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-               <section id="contact">
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4" data-translate="projects_title">Projects</h2>
+            <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
+            <div id="projects-list" class="flex flex-col gap-8">
+                <div class="bg-white rounded-xl shadow p-6 hover:scale-105 transition flex flex-col gap-2">
+                    <h3 class="text-xl font-semibold mb-1">bunyaminkartall.github.io</h3>
+                    <p class="mb-2" data-translate="project1_desc">Github sayfamı ziyaret ederek yapmış olduğum projeleri inceleyebilirsiniz.</p>
+                    <a href="https://github.com/bunyaminkartall" target="_blank" rel="noopener" class="font-medium hover:underline" style="color: #3e6ff4" data-translate="project1_link">Projelerime Git</a>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6 hover:scale-105 transition flex flex-col gap-2">
+                    <h3 class="text-xl font-semibold mb-1">LinkedIn Bünyamin KARTAL</h3>
+                    <p class="mb-2" data-translate="project2_desc">linkedin sayfamı ziyaret ederek kariyer gelişimim hakkında bilgi edinebilirsiniz.</p>
+                    <a href="https://www.linkedin.com/in/bünyaminkartal/" target="_blank" rel="noopener" class="font-medium hover:underline" style="color: #3e6ff4" data-translate="project2_link">Sayfaya Git</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div>
+                <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4" data-translate="experience_title">Experience</h2>
+                <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
+                <ul class="space-y-6">
+                    <li class="bg-white rounded-xl shadow p-6 flex flex-col gap-2 hover:scale-105 transition">
+                        <div class="font-semibold text-lg" data-translate="exp1_title">Yazılım Geliştirme(Intern Backend Devolper) - Penta Teknoloji</div>
+                        <div class="text-sm text-gray-600" data-translate="exp1_date">Tem 2024 - Eyl 2024</div>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                            <li data-translate="exp1_desc1">Temmuz 2024 itibarıyla Penta Teknoloji firmasında Dijital Dönüşüm ve Operasyon Direktörlüğü departmanında Yazılım Geliştirme stajına başlamış bulunmaktayım. Bu staj, yazılım geliştirme süreçlerine dair derinlemesine bilgi edinmemi ve dijital dönüşüm projelerinde aktif rol almamı sağlamaktadır. Profesyonel ortamda elde ettiğim deneyimler, teknik becerilerimi pekiştirmeme ve kariyerime değerli katkılar sunmama olanak tanımaktadır.</li>
+                            <li data-translate="exp1_skills">C#,.Net, Sosyal Beceri, Ekip Çalışması</li>
+                        </ul>
+                    </li>
+                    <li class="bg-white rounded-xl shadow p-6 flex flex-col gap-2 hover:scale-105 transition">
+                        <div class="font-semibold text-lg" data-translate="exp2_title">Intern Embedded Software Developer - Quark Optical</div>
+                        <div class="text-sm text-gray-600" data-translate="exp2_date">Kas 2024 - Mar 2025</div>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                            <li data-translate="exp2_desc1">Heyecan verici bir yolculuğa başlıyorum! APD modülleri, lazer radar, mesafe ölçüm teknolojileri ve biyomedikal analiz gibi yenilikçi alanlarda faaliyet gösteren bir firmada yazılım stajına başladım. Bu staj sürecinde, düşük ışık seviyelerinin algılanmasında kullanılan gelişmiş teknolojileri öğrenme ve geliştirme fırsatı yakalayacağım. Özellikle düşük gürültülü amplifikatör devreleri, yüksek voltaj güç kaynakları ve sıcaklık dengeleme devreleri gibi karmaşık sistemlerin yazılım çözümlerine odaklanarak, edindiğim bilgi ve becerileri gerçek projelerde uygulama şansı bulacağım. Teknoloji ve yazılım geliştirme yolculuğumun bir sonraki aşaması için sabırsızlanıyorum!</li>
+                            <li data-translate="exp2_skills">C, STM32, Ekip Çalışması, Sosyal Beceri</li>
+                        </ul>
+                    </li>
+                    <li class="bg-white rounded-xl shadow p-6 flex flex-col gap-2 hover:scale-105 transition">
+                        <div class="font-semibold text-lg" data-translate="exp3_title">GDG On Campus Dogus Universty</div>
+                        <div class="text-sm text-gray-600" data-translate="exp3_date">Ekm 2024 - Halen</div>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                            <li data-translate="exp3_desc1">Okulumnuz bünyesinde bulunan kulübümüzde çeşitli workshoplar, söyleşiler, podcastler ve zirveler düzenleyerek hem kendi gelişimimize katkıda bulunuduk hem de bizimle aynı amaca hizmet eden arkadaşlarımıza sektör ve gündem hakkında ufuklarını açıcak ortamlar sunduk.</li>
+                            <li data-translate="exp3_skills">Ekip Çalışması, Etkinlik Yönetimi, Sosyal Beceri</li>
+                        </ul>
+                    </li>
+                    <li class="bg-white rounded-xl shadow p-6 flex flex-col gap-2 hover:scale-105 transition">
+                        <div class="font-semibold text-lg" data-translate="exp4_title">Part-Time Etkinlik Destek Görevlisi - AdStation</div>
+                        <div class="text-sm text-gray-600" data-translate="exp4_date">Eyl 2021 - Halen</div>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                            <li data-translate="exp4_desc1">Etkinlik yönetimi, organizasyon planlaması ve sahada operasyonel destek sağlama gibi görevlerde aktif rol aldım. Takım çalışması, problem çözme ve müşteri deneyimi konularında yetkinlik kazandım. Dinamik ortamlarda esneklik ve zaman yönetimi becerilerimi geliştirdim.</li>
+                            <li data-translate="exp4_skills">Ekip Çalışması, Sorun Çözme, Stres Yönetimi</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4" data-translate="education_title">Education</h2>
+            <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
+            <ul class="flex flex-col gap-6">
+                <li class="bg-white rounded-xl shadow p-6 hover:scale-105 transition flex items-center gap-4">
+                    <img src="https://placehold.co/64x64/f3f4f6/333333?text=D%C3%9C" alt="Doğuş Üniversitesi" class="w-16 h-16 min-w-16 min-h-16 aspect-square object-contain rounded bg-gray-100" />
                     <div>
-                         <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4">Contact</h2>
-                         <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
-                         <div class="max-w-md mx-auto text-center">
-                              <a href="mailto:bunyaminkartalmain@gmail.com" class="inline-block text-lg font-semibold bg-gray-100 px-6 py-4 rounded-xl shadow hover:bg-gray-50 transition">bunyaminkartalmain@gmail.com</a>
-                         </div>
+                        <div class="font-semibold text-lg" data-translate="edu1_school">Doğuş Üniversitesi</div>
+                        <div class="text-sm text-gray-600" data-translate="edu1_degree">Bilgisayar Mühendisliği - 2022-halen</div>
+                        <div class="text-gray-700" data-translate="edu1_desc">Yazılım geliştirme, algoritmalar ve proje yönetimi üzerine yoğun eğitim. Kulüp ve topluluklarda aktif rol.</div>
                     </div>
-               </section>
-          </main>
+                </li>
+            </ul>
+        </section>
 
-          <footer class="bg-gray-900 text-white py-12 mt-8 shadow-inner flex flex-col items-center justify-center gap-12">
-               <div class="text-3xl md:text-4xl font-extrabold text-center">Bünyamin KARTAL</div>
-               <div class="flex gap-6">
-                    <a href="https://github.com/bunyaminkartall" class="hover:text-[#3e6ff4]" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
-                    <a href="https://www.instagram.com/krtl_bnymn/" class="hover:text-[#3e6ff4]" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="https://x.com/" class="hover:text-[#3e6ff4]" aria-label="X-Twitter"><i class="fab fa-x-twitter fa-lg"></i></a>
-                    <a href="https://www.linkedin.com/in/bünyaminkartal/" class="hover:text-[#3e6ff4]" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
-               </div>
-               <div class="text-sm text-gray-300">&copy; 2024 Bünyamin KARTAL. All rights reserved.</div>
-          </footer>
-     </body>
-     <script type="module" src="/src/main.js"></script>
+        <!-- Contact Section -->
+        <section id="contact" class="pb-16">
+            <div>
+                <h2 class="text-3xl font-extrabold mb-2 tracking-tight text-center" style="color: #3e6ff4" data-translate="contact_title">Contact</h2>
+                <div class="w-16 h-1 rounded mx-auto my-4" style="background: #3e6ff4"></div>
+                <div class="max-w-md mx-auto text-center">
+                    <a href="mailto:bunyaminkartalmain@gmail.com" class="inline-block text-lg font-semibold bg-gray-100 px-6 py-4 rounded-xl shadow hover:bg-gray-200 transition">bunyaminkartalmain@gmail.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-auto shadow-inner flex flex-col items-center justify-center gap-12">
+        <div class="text-3xl md:text-4xl font-extrabold text-center">Bünyamin KARTAL</div>
+        <div class="flex gap-6">
+            <a href="https://github.com/bunyaminkartall" class="hover:text-[#3e6ff4]" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
+            <a href="https://www.instagram.com/krtl_bnymn/" class="hover:text-[#3e6ff4]" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="https://x.com/" class="hover:text-[#3e6ff4]" aria-label="X-Twitter"><i class="fab fa-x-twitter fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/bünyaminkartal/" class="hover:text-[#3e6ff4]" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+        </div>
+        <div class="text-sm text-gray-300" data-translate="footer_copy">&copy; 2024 Bünyamin KARTAL. All rights reserved.</div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- TRANSLATION LOGIC ---
+
+            const translations = {
+                en: {
+                    // Navigation
+                    nav_about: "About",
+                    nav_skills: "Skills",
+                    nav_projects: "Projects",
+                    nav_experience: "Experience",
+                    nav_education: "Education",
+                    nav_contact: "Contact",
+                    // Hero Section
+                    hero_greeting: "Hello, I'm Bünyamin KARTAL",
+                    hero_title: "Back-End Developer",
+                    hero_desc: "I develop sustainable, modular, and user-oriented projects using innovative technologies in electronics and software. With SOLID principles and a clean code approach, I offer adaptable and scalable solutions.",
+                    hero_contact_btn: "Get in Touch",
+                    hero_projects_btn: "My Projects",
+                    // About Section
+                    about_title: "About",
+                    about_desc: "I am a third-year student in the Computer Engineering Department at Doğuş University. During my three years at the university, I have developed object-oriented programming projects in Java and C++. In this process, I have gained significant skills in teamwork, problem-solving, and software development. As I take firm steps in my career, I make a point of being open to innovations by constantly improving myself. To enhance my professional competencies and learn the best practices in the industry, I continuously motivate myself. In line with this goal, I aim to become a professional who can produce effective and innovative solutions in the field of computer engineering by reinforcing my technical skills and theoretical knowledge with practical experience.",
+                    // Skills Section
+                    skills_title: "Skills",
+                    skill_java_desc: "Experience in backend and general software development.",
+                    skill_net_desc: "Experience in backend and general software development.",
+                    // Projects Section
+                    projects_title: "Projects",
+                    project1_desc: "You can review my projects by visiting my Github page.",
+                    project1_link: "Go to My Projects",
+                    project2_desc: "You can learn about my career development by visiting my LinkedIn page.",
+                    project2_link: "Go to Page",
+                    // Experience Section
+                    experience_title: "Experience",
+                    exp1_title: "Software Development (Intern Backend Developer) - Penta Teknoloji",
+                    exp1_date: "Jul 2024 - Sep 2024",
+                    exp1_desc1: "As of July 2024, I have started my Software Development internship at Penta Teknoloji in the Digital Transformation and Operations Directorate. This internship allows me to gain in-depth knowledge of software development processes and take an active role in digital transformation projects. The experience I gain in a professional environment helps me strengthen my technical skills and make valuable contributions to my career.",
+                    exp1_skills: "C#, .Net, Social Skills, Teamwork",
+                    exp2_title: "Intern Embedded Software Developer - Quark Optical",
+                    exp2_date: "Nov 2024 - Mar 2025",
+                    exp2_desc1: "I'm starting an exciting journey! I have begun a software internship at a company operating in innovative fields such as APD modules, laser radar, distance measurement technologies, and biomedical analysis. During this internship, I will have the opportunity to learn and develop advanced technologies used in detecting low light levels. By focusing on software solutions for complex systems like low-noise amplifier circuits, high-voltage power supplies, and temperature compensation circuits, I will be able to apply my knowledge and skills to real projects. I look forward to the next stage of my technology and software development journey!",
+                    exp2_skills: "C, STM32, Teamwork, Social Skills",
+                    exp3_title: "GDG On Campus Dogus University",
+                    exp3_date: "Oct 2024 - Present",
+                    exp3_desc1: "In our club at the university, we organized various workshops, talks, podcasts, and summits, contributing to our own development and providing our like-minded friends with environments that broaden their horizons about the industry and current trends.",
+                    exp3_skills: "Teamwork, Event Management, Social Skills",
+                    exp4_title: "Part-Time Event Support Staff - AdStation",
+                    exp4_date: "Sep 2021 - Present",
+                    exp4_desc1: "I took an active role in tasks such as event management, organization planning, and on-site operational support. I gained competence in teamwork, problem-solving, and customer experience. I developed my flexibility and time management skills in dynamic environments.",
+                    exp4_skills: "Teamwork, Problem Solving, Stress Management",
+                    // Education Section
+                    education_title: "Education",
+                    edu1_school: "Doğuş University",
+                    edu1_degree: "Computer Engineering - 2022-Present",
+                    edu1_desc: "Intensive education on software development, algorithms, and project management. Active role in clubs and communities.",
+                    // Contact Section
+                    contact_title: "Contact",
+                    // Footer
+                    footer_copy: "© 2024 Bünyamin KARTAL. All rights reserved."
+                },
+                tr: {
+                    // Navigation
+                    nav_about: "Hakkımda",
+                    nav_skills: "Yetenekler",
+                    nav_projects: "Projeler",
+                    nav_experience: "Deneyim",
+                    nav_education: "Eğitim",
+                    nav_contact: "İletişim",
+                    // Hero Section
+                    hero_greeting: "Merhaba, ben Bünyamin KARTAL",
+                    hero_title: "Back-End Developer",
+                    hero_desc: "Elektronik ve yazılım alanlarında yenilikçi teknolojileri kullanarak, sürdürülebilir, modüler ve kullanıcı odaklı projeler geliştiriyorum. SOLID prensipleri ve temiz kod anlayışıyla, değişime açık ve ölçeklenebilir çözümler sunuyorum.",
+                    hero_contact_btn: "İletişime Geç",
+                    hero_projects_btn: "Projelerim",
+                    // About Section
+                    about_title: "Hakkımda",
+                    about_desc: "Doğuş Üniversitesi Bilgisayar Mühendisliği Bölümü'nde üçüncü sınıf öğrencisiyim. Üniversitede geçirdiğim üç yıl boyunca Java ve C++ dillerinde nesne yönelimli programlama temelli projeler gerçekleştirdim. Bu süreçte ekip çalışması, problem çözme ve yazılım geliştirme konularında önemli beceriler kazandım. Kariyerime sağlam adımlarla ilerlerken, kendimi sürekli geliştirerek yeniliklere açık olmaya özen gösteriyorum. Profesyonel yetkinliklerimi artırmak ve sektördeki en iyi uygulamaları öğrenmek için sürekli olarak kendimi motive ediyorum. Bu amaç doğrultusunda, teknik becerilerimi ve teorik bilgimi pratik deneyimlerle pekiştirerek, bilgisayar mühendisliği alanında etkili ve yenilikçi çözümler üretebilecek bir profesyonel olmayı hedefliyorum.",
+                    // Skills Section
+                    skills_title: "Yetenekler",
+                    skill_java_desc: "Backend ve genel yazılım geliştirme deneyimi.",
+                    skill_net_desc: "Backend ve genel yazılım geliştirme deneyimi.",
+                    // Projects Section
+                    projects_title: "Projeler",
+                    project1_desc: "Github sayfamı ziyaret ederek yapmış olduğum projeleri inceleyebilirsiniz.",
+                    project1_link: "Projelerime Git",
+                    project2_desc: "linkedin sayfamı ziyaret ederek kariyer gelişimim hakkında bilgi edinebilirsiniz.",
+                    project2_link: "Sayfaya Git",
+                    // Experience Section
+                    experience_title: "Deneyim",
+                    exp1_title: "Yazılım Geliştirme (Stajyer Backend Geliştirici) - Penta Teknoloji",
+                    exp1_date: "Tem 2024 - Eyl 2024",
+                    exp1_desc1: "Temmuz 2024 itibarıyla Penta Teknoloji firmasında Dijital Dönüşüm ve Operasyon Direktörlüğü departmanında Yazılım Geliştirme stajına başlamış bulunmaktayım. Bu staj, yazılım geliştirme süreçlerine dair derinlemesine bilgi edinmemi ve dijital dönüşüm projelerinde aktif rol almamı sağlamaktadır. Profesyonel ortamda elde ettiğim deneyimler, teknik becerilerimi pekiştirmeme ve kariyerime değerli katkılar sunmama olanak tanımaktadır.",
+                    exp1_skills: "C#,.Net, Sosyal Beceri, Ekip Çalışması",
+                    exp2_title: "Gömülü Yazılım Geliştirici Stajyeri - Quark Optical",
+                    exp2_date: "Kas 2024 - Mar 2025",
+                    exp2_desc1: "Heyecan verici bir yolculuğa başlıyorum! APD modülleri, lazer radar, mesafe ölçüm teknolojileri ve biyomedikal analiz gibi yenilikçi alanlarda faaliyet gösteren bir firmada yazılım stajına başladım. Bu staj sürecinde, düşük ışık seviyelerinin algılanmasında kullanılan gelişmiş teknolojileri öğrenme ve geliştirme fırsatı yakalayacağım. Özellikle düşük gürültülü amplifikatör devreleri, yüksek voltaj güç kaynakları ve sıcaklık dengeleme devreleri gibi karmaşık sistemlerin yazılım çözümlerine odaklanarak, edindiğim bilgi ve becerileri gerçek projelerde uygulama şansı bulacağım. Teknoloji ve yazılım geliştirme yolculuğumun bir sonraki aşaması için sabırsızlanıyorum!",
+                    exp2_skills: "C, STM32, Ekip Çalışması, Sosyal Beceri",
+                    exp3_title: "GDG On Campus Doğuş Üniversitesi",
+                    exp3_date: "Ekm 2024 - Halen",
+                    exp3_desc1: "Okulumuz bünyesinde bulunan kulübümüzde çeşitli workshoplar, söyleşiler, podcastler ve zirveler düzenleyerek hem kendi gelişimimize katkıda bulunduk hem de bizimle aynı amaca hizmet eden arkadaşlarımıza sektör ve gündem hakkında ufuklarını açacak ortamlar sunduk.",
+                    exp3_skills: "Ekip Çalışması, Etkinlik Yönetimi, Sosyal Beceri",
+                    exp4_title: "Yarı Zamanlı Etkinlik Destek Görevlisi - AdStation",
+                    exp4_date: "Eyl 2021 - Halen",
+                    exp4_desc1: "Etkinlik yönetimi, organizasyon planlaması ve sahada operasyonel destek sağlama gibi görevlerde aktif rol aldım. Takım çalışması, problem çözme ve müşteri deneyimi konularında yetkinlik kazandım. Dinamik ortamlarda esneklik ve zaman yönetimi becerilerimi geliştirdim.",
+                    exp4_skills: "Ekip Çalışması, Sorun Çözme, Stres Yönetimi",
+                    // Education Section
+                    education_title: "Eğitim",
+                    edu1_school: "Doğuş Üniversitesi",
+                    edu1_degree: "Bilgisayar Mühendisliği - 2022-Halen",
+                    edu1_desc: "Yazılım geliştirme, algoritmalar ve proje yönetimi üzerine yoğun eğitim. Kulüp ve topluluklarda aktif rol.",
+                    // Contact Section
+                    contact_title: "İletişim",
+                    // Footer
+                    footer_copy: "© 2024 Bünyamin KARTAL. Tüm hakları saklıdır."
+                }
+            };
+
+            const languageButtons = {
+                desktop: {
+                    tr: document.getElementById('lang-tr'),
+                    en: document.getElementById('lang-en')
+                },
+                mobile: {
+                    tr: document.getElementById('lang-tr-mobile'),
+                    en: document.getElementById('lang-en-mobile')
+                }
+            };
+
+            const setLanguage = (lang) => {
+                // Find all elements with the data-translate attribute
+                document.querySelectorAll('[data-translate]').forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+                // Set the lang attribute on the HTML tag for accessibility
+                document.documentElement.lang = lang;
+                // Save the selected language to local storage
+                localStorage.setItem('language', lang);
+                // Update active button styles
+                updateButtonStyles(lang);
+            };
+
+            const updateButtonStyles = (activeLang) => {
+                ['desktop', 'mobile'].forEach(device => {
+                    Object.keys(languageButtons[device]).forEach(lang => {
+                        const button = languageButtons[device][lang];
+                        if (lang === activeLang) {
+                            button.classList.add('active');
+                        } else {
+                            button.classList.remove('active');
+                        }
+                    });
+                });
+            };
+
+            // Add click event listeners to all language buttons
+            ['desktop', 'mobile'].forEach(device => {
+                languageButtons[device].tr.addEventListener('click', () => setLanguage('tr'));
+                languageButtons[device].en.addEventListener('click', () => setLanguage('en'));
+            });
+            
+            // --- MOBILE MENU LOGIC ---
+
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('#mobileMenu .nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- ACTIVE NAV LINK ON SCROLL ---
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // --- INITIALIZATION ---
+            
+            // Get the saved language from local storage, or default to 'tr'
+            const savedLang = localStorage.getItem('language') || 'tr';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
 </html>
