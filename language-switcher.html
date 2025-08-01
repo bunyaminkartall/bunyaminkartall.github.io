@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dil Değiştirme Uygulaması</title>
+    <!-- Tailwind CSS'i dahil ediyoruz -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Varsayılan font ayarı */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Ana içerik kutusu -->
+    <div class="bg-white p-8 rounded-2xl shadow-xl max-w-lg w-full">
+        
+        <!-- Butonların bulunduğu üst kısım -->
+        <div class="flex justify-end mb-6">
+            <button id="tr-btn" class="lang-btn bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200 mr-2">TR</button>
+            <button id="en-btn" class="lang-btn bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-200">EN</button>
+        </div>
+
+        <!-- Başlık ve metin içeriği -->
+        <h1 id="page-title" class="text-3xl font-bold mb-4">Hoş Geldiniz!</h1>
+        <p id="page-content" class="text-lg text-gray-600 leading-relaxed">
+            Bu, dil değiştirme işlevini gösteren basit bir web sayfasıdır. Yukarıdaki butonları kullanarak dil değiştirebilirsiniz. Bu örnek, butonların nasıl görünür olacağını ve çalıştığını gösterir.
+        </p>
+    </div>
+
+    <script>
+        // Sayfadaki HTML elementlerini seçiyoruz
+        const trButton = document.getElementById('tr-btn');
+        const enButton = document.getElementById('en-btn');
+        const pageTitle = document.getElementById('page-title');
+        const pageContent = document.getElementById('page-content');
+        const buttons = document.querySelectorAll('.lang-btn');
+
+        // Çevirileri bir JavaScript nesnesinde saklıyoruz
+        const translations = {
+            'tr': {
+                title: 'Hoş Geldiniz!',
+                content: 'Bu, dil değiştirme işlevini gösteren basit bir web sayfasıdır. Yukarıdaki butonları kullanarak dil değiştirebilirsiniz. Bu örnek, butonların nasıl görünür olacağını ve çalıştığını gösterir.'
+            },
+            'en': {
+                title: 'Welcome!',
+                content: 'This is a simple web page demonstrating language switching functionality. You can switch the language using the buttons above. This example shows how the buttons should be visible and functional.'
+            }
+        };
+
+        // Mevcut dili izlemek için bir değişken tanımlıyoruz
+        let currentLang = 'tr';
+
+        // Butonların stilini güncelleyen fonksiyon
+        function updateButtonStyles() {
+            buttons.forEach(button => {
+                if (button.id === `${currentLang}-btn`) {
+                    // Aktif butona farklı bir stil veriyoruz
+                    button.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    button.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+                } else {
+                    // Diğer butonların stilini varsayılana döndürüyoruz
+                    button.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+                    button.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                }
+            });
+        }
+
+        // Metin içeriğini güncelleyen fonksiyon
+        function updateContent() {
+            pageTitle.innerText = translations[currentLang].title;
+            pageContent.innerText = translations[currentLang].content;
+            updateButtonStyles(); // Buton stillerini de güncelliyoruz
+        }
+
+        // 'TR' butonuna tıklama olayını dinliyoruz
+        trButton.addEventListener('click', () => {
+            currentLang = 'tr';
+            updateContent();
+        });
+
+        // 'EN' butonuna tıklama olayını dinliyoruz
+        enButton.addEventListener('click', () => {
+            currentLang = 'en';
+            updateContent();
+        });
+
+        // Sayfa yüklendiğinde varsayılan dili ayarla
+        window.onload = updateContent;
+    </script>
+</body>
+</html>
